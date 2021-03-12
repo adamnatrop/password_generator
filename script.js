@@ -11,26 +11,23 @@ var numbers = allNumbers.split("");
 var lowerCase = letters.split("");
 var upperCase = lowerCase.map(lower => lower.toUpperCase());  // converts lowercase letters to uppercase letters
 
-
+// function results are stored in these variables
 var password = "";
-
 var randomArray = []; 
-
-//var charCount = askUserCharPref();
-
-var charNumber = "";
+var parsNumber = "";
 
 
 
 
+// ask the user how many charcters to include in password
 
 function askUserCharPref(){
   
-
   var characterCount = prompt("How many characters?");
 
-  charNumber = parseInt(characterCount)
-    if ( characterCount < 8 || characterCount > 128 ){
+  parsNumber = parseInt(characterCount)
+
+    if ( parsNumber < 8 || parsNumber > 128 || isNaN(parsNumber) ){
 
       alert("Please enter a number between 8 and 128")
       askUserCharPref();
@@ -38,16 +35,15 @@ function askUserCharPref(){
 
     else {
       
-      askUserLower();
-    
+      askUserLower(); // This sends the user to the next prompt
      }   
   }
 
 
 function askUserLower(){
   
-
   var includeLowerCase = confirm("Allow lower case characters?");
+
   if (includeLowerCase){
     randomArray = randomArray.concat(lowerCase);
     console.log(randomArray);
@@ -57,7 +53,6 @@ function askUserLower(){
   }else {
     askUserUpper();
   } 
-
 }
 
 function askUserUpper(){
@@ -85,7 +80,6 @@ function askUserNumbers(){
   } else{
     askUserSymbols();
   }                    
-
 }
 
 function askUserSymbols(){
@@ -103,37 +97,26 @@ function askUserSymbols(){
 
 
 function charCounter(){
-  for (let i = 1; i <= charNumber; i++){
+  for (let i = 1; i <= parsNumber; i++){
     
     var randomIndex = Math.floor(Math.random() * randomArray.length);
   
-    //console.log(randomIndex);
-  
     password += randomArray[randomIndex]
   
-    console.log(password)
+   
 
-  }
-  
+  }  
 }
 
 
 function generatePassword(){
   
   askUserCharPref();
-
   
-    
   return password
    
   
 }
-
-
- //generatePassword();
-
-
-
 
 
 

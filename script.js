@@ -54,7 +54,10 @@ function askUserLower(){
 
     askUserUpper();
   
+  }else {
+    askUserUpper();
   } 
+
 }
 
 function askUserUpper(){
@@ -65,6 +68,8 @@ function askUserUpper(){
 
       askUserNumbers();
 
+    }else {
+      askUserNumbers();
     }
 }
 
@@ -77,7 +82,9 @@ function askUserNumbers(){
 
     askUserSymbols();
 
-  }                     
+  } else{
+    askUserSymbols();
+  }                    
 
 }
 
@@ -89,6 +96,8 @@ function askUserSymbols(){
 
     charCounter();
 
+  }else {
+    charCounter();
   }
 }
 

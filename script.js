@@ -115,9 +115,10 @@ function generatePassword(){
 
   var randomArray = []; // ask gary why this needs to be inside the function to work otherwise it gives concat error on first if statement
 
-  askUser()
+  var charCount = askUser();
 
   function askUser(){
+    
     var characterCount = prompt("How many characters?");
       if ( characterCount < 8 || characterCount > 128 ){
   
@@ -131,6 +132,8 @@ function generatePassword(){
        }   
     
     }
+  
+
   var includeLowerCase = confirm("Allow lower case characters?");
      if (includeLowerCase){
        var randomArray = randomArray.concat(lowerCase);
@@ -154,14 +157,15 @@ function generatePassword(){
       console.log(randomArray);
     }
      
-    console.log(characterCount)
-    charCounter(characterCount);
+    //console.log(charCount)
+
+    charCounter(charCount);
     
 
 
 
     function charCounter(){
-      for (let i = 1; i <= characterCount; i++){
+      for (let i = 1; i <= charCount; i++){
         
         var randomIndex = Math.floor(Math.random() * randomArray.length);
       
